@@ -5,7 +5,7 @@ A supervised learning model based on Graph Neural Network to predict gene co-exp
 ## Data preprocessing
 The files in this folder preprocess all RNA-seq and Hi-C data. The sources of datasets include two parts. The first is pancreatic islet data, collected from [*Greenwald et al. 2019*](https://www.nature.com/articles/s41467-019-09975-4) for Hi-C and [*Fadista et al. 2014*](https://doi.org/10.1073/pnas.1402665111) for RNA-seq data. The second is dataset with 12 types of tissues and cell lines, following [*Marco et al. 2020*](https://doi.org/10.1093/bioinformatics/btaa803). 
 
-Change the dataset_path in each script for storing input and output data. There are two data files already provided: GTEx_Analysis_v8_Annotations_SampleAttributesDS file (RNA-seq data download from GTEx) and GRCh37_p13_gene_info file (genome annotation). Other data could be downloaded according to the accession numbers in the paper. For RNA-seq data downloaded from GTEx, run `sh run_split_tissues.sh` first to split the samples according to the tissu types.
+Change the dataset_path in each script for storing input and output data. There are two data files already provided: GTEx_Analysis_v8_Annotations_SampleAttributesDS file (RNA-seq data download from GTEx) and GRCh37_p13_gene_info file (genome annotation). Other data could be downloaded according to the accession numbers in the paper. For RNA-seq data downloaded from GTEx, run `run_split_tissues.sh` first to split the samples according to the tissu types.
 
 01_gene_expression_islet.py and 02_hic_islet.py are for pancreatic islet data specially, and others are adapted from [*Marco et al. 2020*](https://doi.org/10.1093/bioinformatics/btaa803).  
 
