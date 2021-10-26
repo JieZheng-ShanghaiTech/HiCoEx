@@ -99,7 +99,7 @@ class GATLayer(nn.Module):
         if self.bias is not None:
             self.bias.data.fill_(0.0)
 
-    def forward(self, X, edge_index=None, edge_weight=None):
+    def forward(self, X, edge_index=None):
         h = X
         # Linear Transformation
         h = torch.mm(h, self.W)
@@ -131,10 +131,6 @@ class GATLayer(nn.Module):
 
         weight_mat = torch.zeros_like(e)
         alpha_mat = torch.where(adj > 0, attention, weight_mat)
-        if edge_weight is not None:
-            alpha_weight = (attention[row, col] * edge_weight).sqrt()
-            weight_mat[row, col] = alpha_weight
-            attention = attention - alpha_mat + weight_mat
 
         if self.dropout:
             attention = self.dropout(attention)
@@ -258,9 +254,9 @@ class HiCoEx(nn.Module):
 
         self.edge_predictor = EdgePredict(aggregator, classifier, nhid, nclass, L)
 
-    def forward(self, h, edge_index=None, edge_weights=None):
+    def forward(self, h, edge_index=None):
         for i in range(len(self.gatconv)):
-            h  = self.gatconv[i](h, edge_index=edge_index, edge_weight=edge_weights)
+            h  = self.gatconv[i](h, edge_index=edge_index)
         return h
 
     def loss(self, pred, label):
@@ -280,10 +276,10 @@ class HiCoEx_pyg(torch.nn.Module):
 
         self.edge_predictor = EdgePredict(aggregator, classifier, nhid, nclass, L)
 
-    def forward(self, h, edge_index, edge_weights=None):
+    def forward(self, h, edge_index):
         # Dropout before the GAT layer is used to avoid overfitting in small datasets like Cora.
         # One can skip them if the dataset is sufficiently large.
-        h, alpha = self.gatconv(h, edge_index, edge_weight=edge_weights, return_attention_weights=True)
+        h, alpha = self.gatconv(h, edge_index, return_attention_weights=True)
         return h, alpha
 
     def loss(self, pred, label):
@@ -303,10 +299,10 @@ class GCN_pyg(torch.nn.Module):
 
         self.edge_predictor = EdgePredict(aggregator, classifier, nhid, nclass, L)
 
-    def forward(self, h, edge_index, edge_weights=None):
+    def forward(self, h, edge_index):
         # Dropout before the GAT layer is used to avoid overfitting in small datasets like Cora.
         # One can skip them if the dataset is sufficiently large.
-        h = self.gcnconv(h, edge_index, edge_weight=edge_weights)
+        h = self.gcnconv(h, edge_index)
         return h, None
 
     def loss(self, pred, label):
