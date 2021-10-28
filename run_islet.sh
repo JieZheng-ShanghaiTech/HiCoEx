@@ -116,5 +116,5 @@ python 02_link_prediction_intra.py --data-root $DATA_ROOT --dataset $DATASET1 --
 # 3 explanation
 cd ../model_explanation
 i=19
-python explanation.py --method GNN_HiCoEx --classifier 'mlp' --n-layers 1 --data-root /data/kezhang/PBC_dataset/nature_data/new_dataset --dataset $DATASET0 --chr-src $i --chr-tgt $i --chromatin-network-name observed_${i}_${i}_${RESOLUTION}_${HIC_PERCENTILE} --coexp-thr $COEXP_PERCENTILE --gene-list INSR
-python explanation.py --method GNN_HiCoEx --classifier 'mlp' --n-layers 1 --data-root /data/kezhang/PBC_dataset/nature_data/new_dataset --dataset $DATASET1 --chr-src $i --chr-tgt $i --chromatin-network-name observed_${i}_${i}_${RESOLUTION}_${HIC_PERCENTILE} --coexp-thr $COEXP_PERCENTILE --gene-list INSR
+python explain.py --method GNN_HiCoEx --classifier 'mlp' --n-layers 1 --data-root /data/kezhang/PBC_dataset/nature_data/new_dataset --dataset $DATASET0 --chr-src $i --chr-tgt $i --chromatin-network-name observed_${i}_${i}_${RESOLUTION}_${HIC_PERCENTILE} --coexp-thr $COEXP_PERCENTILE --gene-list INSR
+python explain.py --method GNN_HiCoEx --classifier 'mlp' --n-layers 1 --data-root /data/kezhang/PBC_dataset/nature_data/new_dataset --dataset $DATASET1 --chr-src $i --chr-tgt $i --chromatin-network-name observed_${i}_${i}_${RESOLUTION}_${HIC_PERCENTILE} --coexp-thr $COEXP_PERCENTILE --gene-list INSR

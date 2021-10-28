@@ -82,4 +82,4 @@ python 02_link_prediction_intra.py --data-root $DATA_ROOT --dataset $DATASET --m
 # 3 explanation
 cd ../model_explanation
 # i=21
-# python explanation.py --method GNN_HiCoEx --classifier 'mlp' --n-layers 1 --data-root $DATA_ROOT --dataset $DATASET --chr-src $i --chr-tgt $i --chromatin-network-name observed_${i}_${i}_${RESOLUTION}_${HIC_PERCENTILE} --coexp-thr $COEXP_PERCENTILE --gene-list CSTB --local True  
+# python explain.py --method GNN_HiCoEx --classifier 'mlp' --n-layers 1 --data-root $DATA_ROOT --dataset $DATASET --chr-src $i --chr-tgt $i --chromatin-network-name observed_${i}_${i}_${RESOLUTION}_${HIC_PERCENTILE} --coexp-thr $COEXP_PERCENTILE --gene-list CSTB --local True  
