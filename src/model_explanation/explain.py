@@ -1,6 +1,7 @@
 import sys  
 sys.path.append('..')
 sys.path.append('../link_prediction')
+import os
 from link_prediction.train_GNN import data_prepare,view_model_param
 from link_prediction.gnn_model import HiCoEx, HiCoEx_pyg
 from link_prediction.utils import set_gpu
@@ -8,6 +9,7 @@ from link_prediction.utils_link_prediction import *
 from AttExplainer import AttExplainer
 from plotting import plot
 
+import pandas as pd
 import numpy as np
 import torch
 import torch.nn as nn
