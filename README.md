@@ -20,7 +20,7 @@ For all baselines, first run matrix_factorization.py and random_walk.py to gener
 01_link_prediction_chromosome.py implements co-expression prediction for each intra chromosome, 02_link_prediction_chrosome.py implements co-expression prediction for the dataset of genome-wide intra chromosomes.
 
 ## Model explanation
-The files in this folder are to explain the trained model by HiCoEx. In explanation<area>.py, specifying --glob with True will generate the global attention subgraph for a trained model, and specifying --local with True and --gene-list with the genes to be explained will generate the local attention subgraph for related gene pairs. Note that we only explain gene pairs that are both co-expressed and contact with each other, and please make sure the explained genes are in the gene expression data, and also consistent with the specified chromosome --chr-src(--chr-tgt). 
+The files in this folder are to explain the gene embeddings learned from HiCoEx and analyze the specific subgraph of gene pairs. After training the model, one can reproduce the results of Figure 5 in the paper by biological_explanation_reproduce.ipynb.   
 
 ## Acknowledgement
 Code of data preprocessing and link prediction by baseline methods (random-rf, topological-rf, svd-rf,  node2vec-rf) are adapted from [*Marco et al. 2020*](https://doi.org/10.1093/bioinformatics/btaa803) with the repository https://github.com/marcovarrone/gene-expression-chromatin.

@@ -105,12 +105,8 @@ class GATLayer(nn.Module):
         h = torch.mm(h, self.W)
         N = h.size()[0]
         # Attention Mechanism (shared attention, therefore repeat h at two dimensions to make a adj-like mask)
-        if hasattr(torch.cuda, 'empty_cache'):
-	        torch.cuda.empty_cache()
         a_input = torch.cat([h.repeat(1, N).view(N * N, -1), h.repeat(N, 1)], dim=1).view(N, -1, 2 * self.out_features)
-        if hasattr(torch.cuda, 'empty_cache'):
-	        torch.cuda.empty_cache()
-        e       = self.leakyrelu(torch.matmul(a_input, self.a))
+        e = self.leakyrelu(torch.matmul(a_input, self.a))
         # (h * self.a).sum(dim=-1)
 
         adj = torch.zeros_like(self.A)
@@ -256,8 +252,8 @@ class HiCoEx(nn.Module):
 
     def forward(self, h, edge_index=None):
         for i in range(len(self.gatconv)):
-            h  = self.gatconv[i](h, edge_index=edge_index)
-        return h
+            h, alpha  = self.gatconv[i](h, edge_index=edge_index)
+        return h, alpha
 
     def loss(self, pred, label):
         criterion = nn.CrossEntropyLoss()
