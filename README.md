@@ -1,5 +1,5 @@
 # HiCoEx
-A supervised learning model based on Graph Neural Network to predict gene co-expression from chromatin contacts
+Prediction of Gene Co-expression from Chromatin Contacts with Graph Attention Network
 <img src="framework.jpg" alt="framework" style="zoom:200%;" /> 
 
 ## Data preprocessing
