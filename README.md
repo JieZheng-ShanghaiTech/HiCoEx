@@ -1,7 +1,7 @@
 # HiCoEx
 Prediction of Gene Co-expression from Chromatin Contacts with Graph Attention Network
 <img src="framework.jpg" alt="framework" style="zoom:200%;" /> 
-The paper will be published on \textit{Bioinformatics}.
+The paper will be published on *Bioinformatics*.
 
 ## Data preprocessing
 The files in this folder preprocess all RNA-seq and Hi-C data. The sources of datasets include two parts. The first is pancreatic islet data, collected from [*Greenwald et al. 2019*](https://www.nature.com/articles/s41467-019-09975-4) for Hi-C and [*Fadista et al. 2014*](https://doi.org/10.1073/pnas.1402665111) for RNA-seq data. The second is dataset with 12 types of tissues and cell lines, following [*Marco et al. 2020*](https://doi.org/10.1093/bioinformatics/btaa803). 
