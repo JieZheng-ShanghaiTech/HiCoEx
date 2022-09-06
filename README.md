@@ -1,7 +1,21 @@
 # HiCoEx
 Prediction of Gene Co-expression from Chromatin Contacts with Graph Attention Network
 <img src="framework.jpg" alt="framework" style="zoom:200%;" /> 
-The paper will be published on *Bioinformatics*.
+The paper is published on *Bioinformatics* (https://doi.org/10.1093/bioinformatics/btac535).
+
+## Citation
+If you want to use our codes and datasets in your research, please cite:
+···
+@article{10.1093/bioinformatics/btac535,
+    author = {Zhang, Ke and Wang, Chenxi and Sun, Liping and Zheng, Jie},
+    title = "{Prediction of gene co-expression from chromatin contacts with graph attention network}",
+    journal = {Bioinformatics},
+    year = {2022},
+    month = {08},
+    issn = {1367-4803},
+    doi = {10.1093/bioinformatics/btac535},
+    url = {https://doi.org/10.1093/bioinformatics/btac535}
+···
 
 ## Data preprocessing
 The files in this folder preprocess all RNA-seq and Hi-C data. The sources of datasets include two parts. The first is pancreatic islet data, collected from [*Greenwald et al. 2019*](https://www.nature.com/articles/s41467-019-09975-4) for Hi-C and [*Fadista et al. 2014*](https://doi.org/10.1073/pnas.1402665111) for RNA-seq data. The second is dataset with 12 types of tissues and cell lines, following [*Marco et al. 2020*](https://doi.org/10.1093/bioinformatics/btaa803). 
