@@ -1,7 +1,7 @@
 # HiCoEx
-Prediction of Gene Co-expression from Chromatin Contacts with Graph Attention Network
+
 <img src="framework.jpg" alt="framework" style="zoom:200%;" /> 
-The paper is published on [*Bioinformatics*](https://doi.org/10.1093/bioinformatics/btac535).
+The paper is published on *Bioinformatics* named [Prediction of Gene Co-expression from Chromatin Contacts with Graph Attention Network](https://doi.org/10.1093/bioinformatics/btac535).
 
 ## Citation
 If you want to use our codes and datasets in your research, please cite:
@@ -15,6 +15,7 @@ If you want to use our codes and datasets in your research, please cite:
     issn = {1367-4803},
     doi = {10.1093/bioinformatics/btac535},
     url = {https://doi.org/10.1093/bioinformatics/btac535}
+    }
 ```
 
 ## Data preprocessing
