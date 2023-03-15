@@ -10,23 +10,23 @@ HIC_PERCENTILE=80.0
 EMBEDDING_SIZE=16
 
 
-# mkdir -p ${DATA_ROOT}/${DATASET}
-# cd ${DATA_ROOT}/${DATASET}
+mkdir -p ${DATA_ROOT}/${DATASET}
+cd ${DATA_ROOT}/${DATASET}
 
-# if [ ! -f "$EXPRESSION_PATH" ]; then
-#   wget https://tcga.xenahubs.net/download/TCGA.BRCA.sampleMap/HiSeqV2.gz
-#   gunzip HiSeqV2.gz
-# fi
+if [ ! -f "$EXPRESSION_PATH" ]; then
+  wget https://tcga.xenahubs.net/download/TCGA.BRCA.sampleMap/HiSeqV2.gz
+  gunzip HiSeqV2.gz
+fi
 
 cd ./src/data_preprocessing
-# python 01_gene_expression.py --input $EXPRESSION_PATH --dataset $DATASET
-# python 02_hic_juicer.py --input $HIC_PATH --juicer-path $JUICER_PATH --dataset $DATASET --resolution $ORIGINAL_RESOLUTION --window $RESOLUTION
+python 01_gene_expression.py --input $EXPRESSION_PATH --dataset $DATASET
+python 02_hic_juicer.py --input $HIC_PATH --juicer-path $JUICER_PATH --dataset $DATASET --resolution $ORIGINAL_RESOLUTION --window $RESOLUTION
 
-# cd ../network_construction
-# python 01_compute_coexpression.py --data-root $DATA_ROOT --dataset $DATASET --save-plot --save-coexp
-# python 02_coexpression_network.py --data-root $DATA_ROOT --dataset $DATASET --perc-intra $COEXP_PERCENTILE --save-matrix --save-plot
-# python 03_hic_gene_selection.py --data-root $DATA_ROOT --dataset $DATASET --type observed --resolution $RESOLUTION --save-matrix --save-plot
-# python 04_chromatin_network.py --data-root $DATA_ROOT --dataset $DATASET --type observed --resolution $RESOLUTION --type-inter observed --resolution-inter $RESOLUTION --perc-intra $HIC_PERCENTILE --save-matrix --save-plot
+cd ../network_construction
+python 01_compute_coexpression.py --data-root $DATA_ROOT --dataset $DATASET --save-plot --save-coexp
+python 02_coexpression_network.py --data-root $DATA_ROOT --dataset $DATASET --perc-intra $COEXP_PERCENTILE --save-matrix --save-plot
+python 03_hic_gene_selection.py --data-root $DATA_ROOT --dataset $DATASET --type observed --resolution $RESOLUTION --save-matrix --save-plot
+python 04_chromatin_network.py --data-root $DATA_ROOT --dataset $DATASET --type observed --resolution $RESOLUTION --type-inter observed --resolution-inter $RESOLUTION --perc-intra $HIC_PERCENTILE --save-matrix --save-plot
 
 
 # # 2 link prediction for each single chromosome, seed used in our experiments: 42, 40, 43
