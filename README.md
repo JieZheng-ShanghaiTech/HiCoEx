@@ -39,7 +39,7 @@ For all baselines, first run matrix_factorization.py and random_walk.py to gener
 ## Model explanation
 The files in this folder are to explain the gene embeddings learned from HiCoEx and analyze the specific subgraph of gene pairs. After training the model, one can reproduce the results of Figure 5 in the paper by biological_explanation_reproduce.ipynb.   
 
-For example, to conduct experiments on breast cancer (MCF-7 cell line), you need to download the raw Hi-C data first according to the `HIC_PATH` in `run_breast_cancer.sh`, and then run this script to finish all the above steps.
+For example, to conduct experiments on aorta (a type of tissue), you need to download the raw Hi-C data first according to the accession number `GSE87112` (provided in the Table 1 and section of Data availability in our paper), and run `run_split_tissues.sh` first to split the samples according to the tissue types, then run `run_aorta.sh` to finish all the above steps.
 
 ## Acknowledgement
 Code of data preprocessing and link prediction by baseline methods (random-rf, topological-rf, svd-rf,  node2vec-rf) are adapted from [*Marco et al. 2020*](https://doi.org/10.1093/bioinformatics/btaa803) with the repository https://github.com/marcovarrone/gene-expression-chromatin.
